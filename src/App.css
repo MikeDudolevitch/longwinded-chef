@@ -51,9 +51,10 @@
 }
 
 #footer-span {
-  font-size: small;
+  font-size: medium;
   font-weight: 100;
-  bottom: 0;
+  position:absolute;
+  bottom:3px;
 }
 
 #nav-heading {

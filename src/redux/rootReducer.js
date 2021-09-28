@@ -4,7 +4,7 @@ export const initialState = {
 
 const rootReducer = (state = initialState, action ) => {
     switch(action.type) {
-        case "GET-RECIPES":
+        case "GET_RECIPES":
             return {
                 ...state,
                 store: [ ...action.payload]

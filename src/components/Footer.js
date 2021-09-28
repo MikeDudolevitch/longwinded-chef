@@ -5,7 +5,7 @@ export default class Footer extends Component {
     render() {
         return (
             <span id="footer-span">
-                Copyright 2021 Mike Dudolevitch. All rights reserved. Let's go Caps. 
+                      &copy; Copyright 2021, Mike Dudolevitch. | All rights reserved. | Let's go Caps. 
             </span>
         )
     }

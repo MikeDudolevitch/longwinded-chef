@@ -4,7 +4,7 @@ export const fetchRecipe = () => {
         .then(resp => resp.json)
         .then(data => {
             dispatch({
-                type: "GET-RECIPES", 
+                type: "GET_RECIPES", 
                 payload: data
             })
         })

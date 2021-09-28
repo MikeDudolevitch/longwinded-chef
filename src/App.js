@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,13 +13,17 @@ import {fetchRecipe} from './actions/recipes'
 import { connect } from 'react-redux'
 
 class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchRecipe()
+  }
+
   render() {
+    console.log(this.props)
   return (
     <Router>
       <div>
         <Navigation />
         <Switch>
-          
           <Route exact path= "/" component={Home}/>
           <Route exact path= "/about" component={About}/>
         </Switch>
