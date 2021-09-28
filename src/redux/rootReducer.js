@@ -4,11 +4,10 @@ export const initialState = {
 
 const rootReducer = (state = initialState, action ) => {
     switch(action.type) {
-        case "GET_STORE":
+        case "GET-RECIPES":
             return {
                 ...state,
                 store: [ ...action.payload]
-
             }
             default:
                 return state

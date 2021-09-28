@@ -8,13 +8,17 @@ import Home from './components/Home';
 import Navigation from './components/Navigation'
 import About from './components/About';
 import Footer from './components/Footer';
+import {fetchRecipe} from './actions/recipes'
+import { connect } from 'react-redux'
 
-function App() {
+class App extends React.Component {
+  render() {
   return (
     <Router>
       <div>
         <Navigation />
         <Switch>
+          
           <Route exact path= "/" component={Home}/>
           <Route exact path= "/about" component={About}/>
         </Switch>
@@ -22,6 +26,13 @@ function App() {
       </div>
     </Router>
   );
+} 
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    store: state.store
+  }
+}
+
+export default connect(mapStateToProps, {fetchRecipe})(App)
