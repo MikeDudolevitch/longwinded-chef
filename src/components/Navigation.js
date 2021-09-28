@@ -11,13 +11,13 @@ export default class Navigation extends Component {
         return(
           <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Welcome To The Longwinded-Chef! Where Every Recipe Is A Life Story!</Navbar.Brand>
+        <Navbar.Brand href="/" id="nav-heading">Welcome To The Longwinded-Chef! Where Every Recipe Is A Life Story!</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/store">Store</Nav.Link>
+            <Nav.Link href="/" class="nav-options">Home</Nav.Link>
+            <Nav.Link href="/about" class="nav-options">About</Nav.Link>
+            <Nav.Link href="/store" class="nav-options">Store</Nav.Link>
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

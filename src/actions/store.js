@@ -1,4 +1,4 @@
 import { createStore, applyMiddleware } from "redux";
-import rootReducer from './root-reducer'
+import rootReducer from './redux/root-reducer'
 
 export const store = createStore(rootReducer)

@@ -49,3 +49,19 @@
   border-width: 2px;
   border-color: grey;
 }
+
+#footer-span {
+  font-size: small;
+  font-weight: 100;
+  bottom: 0;
+}
+
+#nav-heading {
+  text-align: center;
+  color: forestgreen;
+  font-weight: 600;
+}
+
+.nav-options {
+  
+}
