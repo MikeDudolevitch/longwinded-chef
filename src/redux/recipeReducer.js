@@ -17,30 +17,29 @@ export const setRecipes = createAsyncThunk(
 
 'recipe/setRecipes',
 async() => {
-    const response = await fetch('http://localhost:3000/recipes')
+
+    const response = await fetch('http://localhost:8080/recipes')
       const data = await response.json()
       return data
       
 }
 )
 
-
 const recipeStore = createSlice({
-    name: "recipe",
-    initialState: {
-        recipes: [],
-    }, 
-    reducers: {
-        addRecipes: (state, action) => {
-            state.recipes.push(action.payload)
-        },
-    extraReducer: (builder) => {
-        builder.addCase(setRecipes.fulfilled, (state, action) => {
-            state.recipes.push(action.payload)
-        })
+    name: 'recipe',
+    initialState:{
+      recipes: [],
+    },
+    reducers:{
+  
+    },
+    extraReducers: (builder) => {
+      builder.addCase(setRecipes.fulfilled, (state, action) =>{
+        state.recipes.push(action.payload)
+      })
     }
-    }
-})
+  })
+  
 
 export const {addRecipes} = recipeStore.actions
 

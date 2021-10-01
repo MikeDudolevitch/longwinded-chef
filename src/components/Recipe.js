@@ -1,11 +1,18 @@
 import React from "react"
 import { Component } from "react";
-import { shallowEqual, useSelector } from "react-redux"
+import { useSelector} from "react-redux"
 
-export default function Recipes() {
-    const { store } = useSelector((state) => state.initialState ) 
-    console.log(store)
+function Recipes() {
+    const { recipes } = useSelector((state) => state.recipe)
+
+    console.log(recipes, 'whats up')
+
+    const recipesOnDom = recipes.map(r => r.map(w =><ul><li>{w.name}</li></ul> ))
     return (
-        <div></div>
+        <div>
+            {recipesOnDom}
+        </div>
     )
 } 
+
+export default Recipes
