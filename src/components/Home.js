@@ -3,7 +3,10 @@ import {Component} from "react";
 
 export default class Home extends Component {
     render () {
-        return <h1> Home Component </h1>
-    }
+        return (
+            <div className="backgrounds">
+                <h1 id="home-header"> Select a Recipe! </h1> 
+            </div>
+        ) } 
 }
 

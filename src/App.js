@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react'
+import React, {useEffect} from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,16 +9,18 @@ import Home from './components/Home';
 import Navigation from './components/Navigation'
 import About from './components/About';
 import Footer from './components/Footer';
-import {fetchRecipe} from './actions/recipes'
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { setRecipes } from './redux/recipeReducer'
 
-class App extends React.Component {
-  componentDidMount() {
-    this.props.fetchRecipe()
-  }
+function App() {
 
-  render() {
-    console.log(this.props)
+  const dispatch = useDispatch() 
+
+  useEffect(() => {
+    dispatch(setRecipes())
+
+  }, [])
+
   return (
     <Router>
       <div>
@@ -32,12 +34,5 @@ class App extends React.Component {
     </Router>
   );
 } 
-}
 
-const mapStateToProps = (state) => {
-  return {
-    store: state.store
-  }
-}
-
-export default connect(mapStateToProps, {fetchRecipe})(App)
+export default App

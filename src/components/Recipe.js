@@ -1,11 +1,11 @@
 import React from "react"
-import {Component} from "react";
+import { Component } from "react";
+import { shallowEqual, useSelector } from "react-redux"
 
-export default class Recipe extends Component {
-    render() {
-        return <div>
-            I AM A RECIPE COMPONENT
-        </div>
-    }
-
-}
+export default function Recipes() {
+    const { store } = useSelector((state) => state.initialState ) 
+    console.log(store)
+    return (
+        <div></div>
+    )
+} 

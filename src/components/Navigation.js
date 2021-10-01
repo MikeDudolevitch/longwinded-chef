@@ -15,9 +15,9 @@ export default class Navigation extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/" class="nav-options">Home</Nav.Link>
-            <Nav.Link href="/about" class="nav-options">About</Nav.Link>
-            <Nav.Link href="/store" class="nav-options">Store</Nav.Link>
+            <Nav.Link href="/" className="nav-options">Recipes</Nav.Link>
+            <Nav.Link href="/about" className="nav-options">About</Nav.Link>
+            <Nav.Link href="/store" className="nav-options">Store</Nav.Link>
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

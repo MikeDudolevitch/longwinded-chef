@@ -40,9 +40,11 @@
 #about-heading {
   text-align: center;
   color: rebeccapurple;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #about-p {
+  background-color: cornsilk;
   font-weight: 200;
   margin: 20px;
   border-style: solid;
@@ -55,12 +57,23 @@
   font-weight: 100;
   position:absolute;
   bottom:3px;
+  left: 5px;
 }
 
 #nav-heading {
   text-align: center;
   color: forestgreen;
   font-weight: 600;
+}
+
+#home-header {
+  color: rgb(1, 59, 23);
+  text-align: center;
+  text-decoration: underline;
+}
+
+.backgrounds {
+  background-color: darkkhaki;
 }
 
 .nav-options {
