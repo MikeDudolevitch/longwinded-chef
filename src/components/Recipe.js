@@ -7,10 +7,12 @@ function Recipes() {
 
     console.log(recipes, 'whats up')
 
-    const recipesOnDom = recipes.map(r => r.map(w =><ul><li>{w.name}</li></ul> ))
+    const recipesOnDom = recipes.map(r => r.map(w =><li key={w.id}>{w.name}</li> ))
     return (
         <div>
+            <ul id="homelist">
             {recipesOnDom}
+            </ul>
         </div>
     )
 } 
