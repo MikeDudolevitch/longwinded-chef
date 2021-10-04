@@ -1,17 +1,25 @@
 import React from "react"
 import { Component } from "react";
-import { useSelector} from "react-redux"
+import { connect, useSelector} from "react-redux"
 import { Link } from "react-router-dom"
+import Recipe from "./Recipe";
+
 
 class Recipes extends Component {
     render() {
-
-    return (
-        <div>
-            {/* {recipesList} */}
-        </div>
+        console.log(this.props)
+        const recipesOnDom = this.props.recipe.map(r => <Recipe recipe={r} />)
+        return (
+            <div>
+                {recipesOnDom}
+            </div>
     )
 }
 }
+    const mapStateToProps = state => {
+        return {
+            recipe: state.recipe
+        }
+    }
 
-export default Recipes
+export default connect(mapStateToProps)(Recipes)

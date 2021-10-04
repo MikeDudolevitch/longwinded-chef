@@ -9,7 +9,7 @@ export default class Home extends Component {
         return (
             <div className="backgrounds">
                 <h1 id="home-header"> Select a Recipe!  </h1>
-                {/* <Recipes /> */}
+                <Recipes />
             </div>
         ) } 
 }

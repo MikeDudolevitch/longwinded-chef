@@ -11,6 +11,7 @@ import About from './components/About';
 import Footer from './components/Footer';
 import { useDispatch, connect } from 'react-redux'
 import { fetchRecipes } from './actions/recipe';
+import RecipeInfo from './components/RecipeInfo';
 
 class App extends React.Component {
   
@@ -19,7 +20,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <Router>
         <div>
@@ -27,7 +27,8 @@ class App extends React.Component {
           <Switch>
             <Route exact path= "/" component={Home}/>
             <Route exact path= "/about" component={About}/>
-            <Route exact path="/recipes/:id" />
+            <Route exact path="/recipes/:id" 
+            render={(props) => <RecipeInfo {...props} recipes={this.props.recipes}/>}/>
   
           </Switch>
         <Footer />
