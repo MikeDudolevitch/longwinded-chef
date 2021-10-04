@@ -9,35 +9,39 @@ import Home from './components/Home';
 import Navigation from './components/Navigation'
 import About from './components/About';
 import Footer from './components/Footer';
-import { useDispatch } from 'react-redux'
-import { setRecipes } from './redux/recipeReducer'
+import { useDispatch, connect } from 'react-redux'
+import { fetchRecipes } from './actions/recipe';
 
-function App() {
+class App extends React.Component {
+  
+  componentDidMount() {
+    this.props.fetchRecipes()
+  }
 
-  const dispatch = useDispatch() 
+  render() {
+    console.log(this.props)
+    return (
+      <Router>
+        <div>
+          <Navigation />
+          <Switch>
+            <Route exact path= "/" component={Home}/>
+            <Route exact path= "/about" component={About}/>
+            <Route exact path="/recipes/:id" />
+  
+          </Switch>
+        <Footer />
+        </div>
+      </Router>
+    );
+  }
+}
+  
 
-  useEffect(() => {
-    dispatch(setRecipes())
+const mapStateToProps = state => {
+  return {
+    recipe: state.recipe
+  }
+}
 
-  }, [])
-
-  return (
-    <Router>
-      <div>
-        <Navigation />
-        <Switch>
-          <Route exact path= "/" component={Home}/>
-          <Route exact path= "/about" component={About}/>
-          <Route exact path="/recipes/:id" />
-
-        </Switch>
-      <Footer />
-      </div>
-    </Router>
-  );
-} 
-
-// render={(props) => <Info {...props} recipes={this.props.recipes} />
-
-
-export default App
+export default connect(mapStateToProps, {fetchRecipes})(App)

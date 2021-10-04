@@ -3,17 +3,15 @@ import { Component } from "react";
 import { useSelector} from "react-redux"
 import { Link } from "react-router-dom"
 
-function Recipes() {
-    const { recipes } = useSelector((state) => state.recipe)
+class Recipes extends Component {
+    render() {
 
-    const recipesOnDom = recipes.map(r => r.map(w =><Link to={`recipes/${w.id}`}><li>{w.name}</li></Link>
-    ))
-    const recipesList = <ul> {recipesOnDom} </ul>
     return (
         <div>
-            {recipesList}
+            {/* {recipesList} */}
         </div>
     )
+}
 }
 
 export default Recipes
