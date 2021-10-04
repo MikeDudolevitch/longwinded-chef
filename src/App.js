@@ -28,11 +28,16 @@ function App() {
         <Switch>
           <Route exact path= "/" component={Home}/>
           <Route exact path= "/about" component={About}/>
+          <Route exact path="/recipes/:id" />
+
         </Switch>
       <Footer />
       </div>
     </Router>
   );
 } 
+
+// render={(props) => <Info {...props} recipes={this.props.recipes} />
+
 
 export default App
