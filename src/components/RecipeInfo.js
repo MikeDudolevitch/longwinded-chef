@@ -11,9 +11,12 @@ class RecipeInfo extends Component {
                 <div className="content-div">
                     <p className="content-p">{recipe.blog}</p> 
                 </div>
-                <div id="ingredients">
-                    {ingredient}
-                </div>
+                    <div id="ing-container">
+                        <h4 id="ing-header"> Ingredients: </h4>
+                            <ul id="ingredients">
+                                {ingredient}
+                            </ul>
+                    </div>
                 <div className="content-div">
                     <p className="content-p">{recipe.instructions}</p>
                 </div>

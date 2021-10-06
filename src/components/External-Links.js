@@ -8,13 +8,13 @@ export default class ExternalLinks extends Component {
         <Container>
             <Row>
                 <Col xs={6} md={4}>
-                    <Image src={".././public/logo192.png"} rounded />
+                    <Image src={process.env.PUBLIC_URL + "/facebookicon.png"} rounded />
                 </Col>
                 <Col xs={6} md={4}>
-                    <Image src="holder.js/171x180" roundedCircle />
+                    <Image src={process.env.PUBLIC_URL + "/twittericon.png"} rounded/>
                 </Col>
                 <Col xs={6} md={4}>
-                    <Image src="holder.js/171x180" thumbnail />
+                    <Image src={process.env.PUBLIC_URL + "/youtubeicon.png"} thumbnail />
                 </Col>
             </Row>
         </Container>

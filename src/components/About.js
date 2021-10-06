@@ -9,7 +9,7 @@ export default class About extends Component {
         return (
         <div className="background">
             <Container className="headers"> About The Chef </Container>
-                <Image src="https://www.istockphoto.com/photo/mallard-duck-on-white-background-gm464988959-32998174"/>
+                <Image src={process.env.PUBLIC_URL + "/mikeweird.jpg"} width="300" position="center" alt="chef"/>
             <Container className="content-div">
                 <AboutContent />
             </Container>

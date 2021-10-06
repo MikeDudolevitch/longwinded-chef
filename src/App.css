@@ -75,6 +75,19 @@
   font-weight: 600;
 }
 
+#ing-header {
+  color: darkolivegreen;
+  margin-left: 10px;
+}
+#ing-container {
+  background-color: cornsilk;
+  font-weight: 200;
+  margin: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: grey;
+}
+
 .headers {
   color: rgb(1, 59, 23);
   text-align: center;
