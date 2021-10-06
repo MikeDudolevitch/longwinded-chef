@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import { useDispatch, connect } from 'react-redux'
 import { fetchRecipes } from './actions/recipe';
 import RecipeInfo from './components/RecipeInfo';
+import ExternalLinks from './components/External-Links';
 
 class App extends React.Component {
   
@@ -24,14 +25,14 @@ class App extends React.Component {
       <Router>
         <div>
           <Navigation />
-          <Switch>
-            <Route exact path= "/" component={Home}/>
-            <Route exact path= "/about" component={About}/>
-            <Route exact path="/recipes/:id" 
-            render={(props) => <RecipeInfo {...props} recipe={this.props.recipe}/>}/>
-  
-          </Switch>
-        <Footer />
+            <Switch>
+              <Route exact path= "/" component={Home}/>
+              <Route exact path= "/about" component={About}/>
+              <Route exact path="/recipes/:id" 
+                render={(props) => <RecipeInfo {...props} recipe={this.props.recipe}/>}/>
+              <Route exact path= "/links" component={ExternalLinks}/>
+            </Switch>
+          <Footer />
         </div>
       </Router>
     );

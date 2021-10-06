@@ -7,12 +7,13 @@ export default class About extends Component {
 
     render() {
         return (
-        <Container className="background">
-            <h2 className="headers"> About The Chef </h2>
-            <Image src="https://www.istockphoto.com/photo/mallard-duck-on-white-background-gm464988959-32998174"/>
-            <AboutContent/>
-
-        </Container>
+        <div className="background">
+            <Container className="headers"> About The Chef </Container>
+                <Image src="https://www.istockphoto.com/photo/mallard-duck-on-white-background-gm464988959-32998174"/>
+            <Container className="content-div">
+                <AboutContent />
+            </Container>
+        </div>
         )
     }
 }

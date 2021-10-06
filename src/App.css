@@ -38,9 +38,10 @@
 }
 
 .headers {
+  font-size: x-large;
   padding: 8px;
   text-align: center;
-  color: rebeccapurple;
+  color: red;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -55,15 +56,17 @@
 
 .content-p {
   margin: 20px;
+  color: darkolivegreen;
 }
 
 #footer-span {
+  background-color: darkolivegreen;
+  width: 100%;
+  color: cornsilk;
   padding: 5px;
   font-size: medium;
   font-weight: 100;
   position:absolute;
-  bottom:3px;
-  left: 5px;
 }
 
 #nav-heading {
@@ -79,7 +82,7 @@
 }
 
 .background {
-  min-height: 800px;
+  min-height: 100vh;
   background-color: darkkhaki;
 }
 
