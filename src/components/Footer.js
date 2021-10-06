@@ -4,9 +4,9 @@ import {Component} from "react";
 export default class Footer extends Component {
     render() {
         return (
-            <span id="footer-span">
+            <div id="footer-span">
                       &copy; Copyright 2021, Mike Dudolevitch. | All rights reserved. | Let's go Caps. 
-            </span>
+            </div>
         )
     }
 }

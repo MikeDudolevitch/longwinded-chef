@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -11,6 +17,16 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#about-card {
+  margin: auto;
+  position: relative;
 }
 
 .App-header {
@@ -61,12 +77,10 @@
 
 #footer-span {
   background-color: darkolivegreen;
-  width: 100%;
   color: cornsilk;
   padding: 5px;
   font-size: medium;
   font-weight: 100;
-  position:absolute;
 }
 
 #nav-heading {
@@ -94,6 +108,10 @@
   text-decoration: underline;
 }
 
+#about-background {
+  
+}
+
 .background {
   min-height: 100vh;
   background-color: darkkhaki;
@@ -102,7 +120,7 @@
 #recipe-list {
   border: brown;
   border-width: 8px;
-  margin: 100 px;
+/* margin:   100 px; */
 }
 
 #recipe {
