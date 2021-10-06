@@ -37,13 +37,14 @@
   }
 }
 
-#about-heading {
+.headers {
+  padding: 8px;
   text-align: center;
   color: rebeccapurple;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#about-p {
+.content-div {
   background-color: cornsilk;
   font-weight: 200;
   margin: 20px;
@@ -52,7 +53,12 @@
   border-color: grey;
 }
 
+.content-p {
+  margin: 20px;
+}
+
 #footer-span {
+  padding: 5px;
   font-size: medium;
   font-weight: 100;
   position:absolute;
@@ -66,13 +72,14 @@
   font-weight: 600;
 }
 
-#home-header {
+.headers {
   color: rgb(1, 59, 23);
   text-align: center;
   text-decoration: underline;
 }
 
-.backgrounds {
+.background {
+  min-height: 800px;
   background-color: darkkhaki;
 }
 

@@ -28,7 +28,7 @@ class App extends React.Component {
             <Route exact path= "/" component={Home}/>
             <Route exact path= "/about" component={About}/>
             <Route exact path="/recipes/:id" 
-            render={(props) => <RecipeInfo {...props} recipes={this.props.recipes}/>}/>
+            render={(props) => <RecipeInfo {...props} recipe={this.props.recipe}/>}/>
   
           </Switch>
         <Footer />
