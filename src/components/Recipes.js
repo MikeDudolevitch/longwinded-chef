@@ -7,11 +7,13 @@ import Recipe from "./Recipe";
 
 class Recipes extends Component {
     render() {
-        console.log(this.props)
         const recipesOnDom = this.props.recipe.map(r => <Recipe recipe={r} />)
+        console.log(recipesOnDom)
         return (
-            <div>
-                {recipesOnDom}
+            <div className="content-div">
+                <ul id="recipe-list">
+                    {recipesOnDom}
+                </ul>
             </div>
     )
 }

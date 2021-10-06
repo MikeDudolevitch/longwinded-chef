@@ -6,11 +6,11 @@ export default class Recipe extends Component {
         console.log(this.props)
         const { name, id } = this.props.recipe
         return(
-            <div>
+            <li id="recipe">
                 <Link to={`/recipes/${id}`}>
                     {name}
                 </Link>
-            </div>
+            </li>
         )
     }
 }

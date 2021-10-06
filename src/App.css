@@ -83,6 +83,18 @@
   background-color: darkkhaki;
 }
 
+#recipe-list {
+  border: brown;
+  border-width: 8px;
+  margin: 100 px;
+}
+
+#recipe {
+  font-size: large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 20px;
+}
+
 #homelist {
   background-color: burlywood;
 }

@@ -1,17 +1,18 @@
 import React from "react";
 import {Component} from "react";
 import AboutContent from "./AboutContent";
-// import mikepic from './mike-pic.jpg'
+import { Container, Image } from "react-bootstrap";
 
 export default class About extends Component {
 
     render() {
-        return (<div className="background">
+        return (
+        <Container className="background">
             <h2 className="headers"> About The Chef </h2>
-       
+            <Image src="https://www.istockphoto.com/photo/mallard-duck-on-white-background-gm464988959-32998174"/>
             <AboutContent/>
 
-        </div>
+        </Container>
         )
     }
 }
