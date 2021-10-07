@@ -1,11 +1,36 @@
 import { Component } from "react";
 import Ingredient from "./Ingredient";
+import CommentForm from "./CommentForm";
 
 class RecipeInfo extends Component {
-    render() {
+    constructor() {
+        super()
+        this.state = {
+            recipe: {},
+            comments: []
+        }
+    }
+
+    componentDidMount() {
         const recipe = this.props.recipe.find(r => r.id === parseInt(this.props.match.params.id))
-        const ingredient = recipe.ingredients.map(i => <Ingredient ingredient={i}/>)
-        const instArray = recipe.instructions.split("|")
+        this.setState({
+            recipe: recipe,
+            comments: recipe.comments || []
+        })
+    }
+
+    addComment = (commentObj) => {
+        const copy = [...this.state.comments]
+        copy.push(commentObj)
+        this.setState({
+            comments: copy
+        })
+    }
+
+    render() {
+        const recipe = this.state.recipe
+        const ingredient = recipe.ingredients && recipe.ingredients.map(i => <Ingredient ingredient={i}/>)
+        const instArray = recipe.instructions && recipe.instructions.split("|")
         return(
             <div className="background">
                 <h3 className="headers">{recipe.name}</h3>
@@ -20,11 +45,11 @@ class RecipeInfo extends Component {
                     </div>
                 <div className="content-div">
                     <p className="content-p">
-                       {instArray.map(i => <p>{i}</p>)} 
+                        {instArray && instArray.map(i => <p>{i}</p>)} 
                     </p>
                 </div>
+                <CommentForm recipe={recipe} addComment={this.addComment}/>
             </div>
-        
         )
     }
 }
