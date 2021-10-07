@@ -19,6 +19,7 @@
   }
 }
 
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -81,6 +82,23 @@
   padding: 5px;
   font-size: medium;
   font-weight: 100;
+}
+
+#comment-box { 
+  background-image: url(./writing.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-style: solid;
+  margin-bottom: 3vw;
+  margin-top: 3vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
+.comment {
+  padding-top: 15px;
+  padding-left: 4vw;
+  padding-right: 65vw;
 }
 
 #nav-heading {

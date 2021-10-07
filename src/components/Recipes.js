@@ -1,7 +1,6 @@
 import React from "react"
 import { Component } from "react";
-import { connect, useSelector} from "react-redux"
-import { Link } from "react-router-dom"
+import { connect } from "react-redux"
 import Recipe from "./Recipe";
 
 

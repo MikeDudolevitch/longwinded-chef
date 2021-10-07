@@ -13,17 +13,17 @@ const CommentForm = props => {
 // TODO make sure comment component is displaying values on browser
 
     return (
-        <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="input" placeholder="username" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Example textarea</Form.Label>
-                <Form.Control as="textarea" rows={3} />
-            </Form.Group>
-            <Button type="submit">Button</Button>
-        </Form>
+        <div id="comment-box">
+            <Form>
+                <Form.Group className="comment" controlId="exampleForm.ControlInput1">
+                    <Form.Control type="input" placeholder="Name" />
+                </Form.Group>
+                <Form.Group className="comment" id="comment-text" controlId="exampleForm.ControlTextarea1">
+                    <Form.Control as="textarea" placeholder="Share your thoughts!" rows={3} />
+                </Form.Group>
+                <Button style={{ marginBottom: 15, marginLeft: "4vw", marginTop: 15 }} type="submit">Post Comment</Button>
+            </Form>
+        </div>
     )
 }
 
