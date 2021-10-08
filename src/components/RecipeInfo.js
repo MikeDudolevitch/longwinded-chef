@@ -11,6 +11,7 @@ class RecipeInfo extends Component {
         }
     }
 
+    
     componentDidMount() {
         const recipe = this.props.recipe.find(r => r.id === parseInt(this.props.match.params.id))
         this.setState({
@@ -28,17 +29,18 @@ class RecipeInfo extends Component {
     }
 
     render() {
-        const recipe = this.state.recipe
-        const ingredient = recipe.ingredients && recipe.ingredients.map(i => <Ingredient ingredient={i}/>)
-        const instArray = recipe.instructions && recipe.instructions.split("|")
+        const recipeObj = this.props.recipe.find(r => r.id === parseInt(this.props.match.params.id))
+        const ingredient = recipeObj.ingredients && recipeObj.ingredients.map(i => <Ingredient ingredient={i}/>)
+        const instArray = recipeObj.instructions && recipeObj.instructions.split("|")
+        
         return(
             <div className="background">
-                <h3 className="headers">{recipe.name}</h3>
+                <h3 className="headers">{recipeObj.name}</h3>
                 <div className="content-div">
-                    <p className="content-p">{recipe.blog}</p> 
+                    <p className="content-p">{recipeObj.blog}</p> 
                 </div>
                     <div id="ing-container">
-                        <h4 id="ing-header"> Ingredients: </h4>
+                        <h4 style={{ padding: 10, color: "darkolivegreen"}}> Ingredients: </h4>
                             <ul id="ingredients">
                                 {ingredient}
                             </ul>
@@ -48,7 +50,7 @@ class RecipeInfo extends Component {
                         {instArray && instArray.map(i => <p>{i}</p>)} 
                     </p>
                 </div>
-                <CommentForm recipe={recipe} addComment={this.addComment}/>
+                <CommentForm recipeObj={recipeObj} addComment={this.addComment}/>
             </div>
         )
     }

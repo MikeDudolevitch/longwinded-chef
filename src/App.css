@@ -27,7 +27,7 @@
 
 #about-card {
   margin: auto;
-  position: relative;
+  margin-right: 10vw;
 }
 
 .App-header {
@@ -55,6 +55,7 @@
 }
 
 .headers {
+  padding: 15px;
   font-size: x-large;
   padding: 8px;
   text-align: center;
@@ -85,7 +86,7 @@
 }
 
 #comment-box { 
-  background-image: url(./writing.jpg);
+  background-image: url(./srcpics/writing.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
   border-style: solid;
@@ -107,10 +108,6 @@
   font-weight: 600;
 }
 
-#ing-header {
-  color: darkolivegreen;
-  margin-left: 10px;
-}
 #ing-container {
   background-color: cornsilk;
   font-weight: 200;
@@ -121,13 +118,16 @@
 }
 
 .headers {
-  color: rgb(1, 59, 23);
+  color: white;
+  font-weight: bolder;
   text-align: center;
   text-decoration: underline;
 }
 
 #about-background {
-  
+  background-image: url(./srcpics/foodpic.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .background {

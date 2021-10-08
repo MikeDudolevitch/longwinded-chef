@@ -1,9 +1,35 @@
 import React from "react"
 import { Form, Button } from "react-bootstrap"
+import { addComment, createComment } from '../actions/recipe.js'
+import { connect } from "react-redux"
 
-const CommentForm = props => {
-    const handleClick = (e) => {
+export class CommentForm extends React.Component {
+    state = {
+        name: "",
+        comment: "",
+        recipe_id: `${this.props.recipeObj.id}`
+    }
+
+     handleChange = (e) => {
+        this.setState({
+            name: e.target.value
+        })
+    }
+
+    handleComment = (e) => {
+        this.setState({
+            comment: e.target.value
+        })
+    }
+
+     handleSubmit = (e) => {
         e.preventDefault()
+        this.props.createComment(this.state)
+        this.setState({
+            name: "",
+            comment: "",
+            recipe_id: `${this.props.recipeObj.id}`
+        }) 
     }
 
 // TODO write an action for posting comment. 
@@ -11,20 +37,22 @@ const CommentForm = props => {
 // TODO call inside click handler
 // TODO inside of .then of promise, call props.addComment()
 // TODO make sure comment component is displaying values on browser
-
+    render(){
+        console.log(this.props)
     return (
         <div id="comment-box">
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
                 <Form.Group className="comment" controlId="exampleForm.ControlInput1">
-                    <Form.Control type="input" placeholder="Name" />
+                    <Form.Control type="input" onChange={this.handleChange} value={this.state.name} placeholder="Name" />
                 </Form.Group>
                 <Form.Group className="comment" id="comment-text" controlId="exampleForm.ControlTextarea1">
-                    <Form.Control as="textarea" placeholder="Share your thoughts!" rows={3} />
+                    <Form.Control as="textarea" onChange={this.handleComment} value={this.state.comment} placeholder="Share your thoughts!" rows={3} />
                 </Form.Group>
                 <Button style={{ marginBottom: 15, marginLeft: "4vw", marginTop: 15 }} type="submit">Post Comment</Button>
             </Form>
         </div>
     )
 }
+}
 
-export default CommentForm
+export default connect(null, {createComment})(CommentForm)
