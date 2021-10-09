@@ -19,15 +19,9 @@
   }
 }
 
-
 .main-container {
   display: flex;
   flex-direction: column;
-}
-
-#about-card {
-  margin: auto;
-  margin-right: 10vw;
 }
 
 .App-header {

@@ -6,7 +6,7 @@ import Recipe from "./Recipe";
 
 class Recipes extends Component {
     render() {
-        const recipesOnDom = this.props.recipe.map(r => <Recipe recipe={r} />)
+        const recipesOnDom = this.props.recipe.map(r => <Recipe recipe={r} key={r.id} />)
         return (
             <div className="content-div">
                 <ul id="recipe-list">
@@ -15,6 +15,7 @@ class Recipes extends Component {
             </div>
     )
 }
+
 }
     const mapStateToProps = state => {
         return {

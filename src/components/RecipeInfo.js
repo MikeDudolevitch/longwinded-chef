@@ -1,6 +1,10 @@
 import { Component } from "react";
 import Ingredient from "./Ingredient";
 import CommentForm from "./CommentForm";
+import { connect } from "react-redux";
+import { fetchRecipes } from "../actions/recipe";
+import Comments from "./Comments"
+import Comment from "./Comment";
 
 class RecipeInfo extends Component {
     constructor() {
@@ -10,9 +14,9 @@ class RecipeInfo extends Component {
             comments: []
         }
     }
-
     
     componentDidMount() {
+        
         const recipe = this.props.recipe.find(r => r.id === parseInt(this.props.match.params.id))
         this.setState({
             recipe: recipe,
@@ -29,6 +33,7 @@ class RecipeInfo extends Component {
     }
 
     render() {
+        
         const recipeObj = this.props.recipe.find(r => r.id === parseInt(this.props.match.params.id))
         const ingredient = recipeObj.ingredients && recipeObj.ingredients.map(i => <Ingredient ingredient={i}/>)
         const instArray = recipeObj.instructions && recipeObj.instructions.split("|")
@@ -51,9 +56,16 @@ class RecipeInfo extends Component {
                     </p>
                 </div>
                 <CommentForm recipeObj={recipeObj} addComment={this.addComment}/>
+                <Comments recipeObj={recipeObj}/>
             </div>
         )
     }
 }
 
-export default RecipeInfo
+const mapStateToProps = state => {
+    return {
+        recipe: state.recipe
+        }
+    }
+
+export default connect(mapStateToProps, {fetchRecipes})(RecipeInfo)
