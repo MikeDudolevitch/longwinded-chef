@@ -24,19 +24,19 @@ class RecipeInfo extends Component {
     }
 
     addComment = (commentObj) => {
-        const copy = [...this.state.comments]
-        copy.push(commentObj)
+        console.log(commentObj)
         this.setState({
-            comments: copy
+            comments: 
+                [...this.state.comments,
+                commentObj]
         })
     }
 
     render() {
-        console.log(this.props)
+
         const recipeObj = this.props.recipe.find(r => r.id === parseInt(this.props.match.params.id))
         const ingredient = recipeObj.ingredients && recipeObj.ingredients.map(i => <Ingredient ingredient={i}/>)
         const instArray = recipeObj.instructions && recipeObj.instructions.split("|")
-        const comments = recipeObj.comments.map(c => <Comment key={c.id} c={c}/>)
         
         return(
             <div className="background">
@@ -56,7 +56,11 @@ class RecipeInfo extends Component {
                     </p>
                 </div>
                 <CommentForm recipeObj={recipeObj} addComment={this.addComment}/>
-                {comments}
+                <div style= {{ marginLeft: "4vw", marginBottom: 15, fontSize: 30, color: "cornsilk", fontStyle: "italic", fontWeight: "bold"}}>
+                    Comments:
+                </div>
+                {recipeObj.comments.map(c => <Comment key={c.id} c={c}/>)} 
+                {this.state.comments.map(c => <Comment key={c.id} c={c}/>)}
             </div>
         )
     }

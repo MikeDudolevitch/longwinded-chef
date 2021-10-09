@@ -49,17 +49,20 @@
 }
 
 .headers {
-  padding: 15px;
-  font-size: x-large;
+  padding: 20px;
+  font-size: 30;
+  font-weight: bolder;
   padding: 8px;
   text-align: center;
-  color: red;
+  color: rgb(69,77,50);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: underline;
 }
 
 .content-div {
   background-color: cornsilk;
-  font-weight: 200;
+  font-weight: 500;
+  font-size: 15px;
   margin: 20px;
   border-style: solid;
   border-width: 2px;
@@ -67,6 +70,7 @@
 }
 
 .content-p {
+  font-size: 16px;
   margin: 20px;
   color: darkolivegreen;
 }
@@ -111,17 +115,11 @@
   border-color: grey;
 }
 
-.headers {
-  color: white;
-  font-weight: bolder;
-  text-align: center;
-  text-decoration: underline;
-}
-
 #about-background {
   background-image: url(./srcpics/foodpic.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  min-height: 100vh;
 }
 
 .background {

@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useEffect} from 'react'
+import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,7 +9,7 @@ import Home from './components/Home';
 import Navigation from './components/Navigation'
 import About from './components/About';
 import Footer from './components/Footer';
-import { useDispatch, connect } from 'react-redux'
+import { connect } from 'react-redux'
 import { fetchRecipes } from './actions/recipe';
 import RecipeInfo from './components/RecipeInfo';
 import ExternalLinks from './components/External-Links';

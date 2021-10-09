@@ -24,7 +24,7 @@ export class CommentForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.createComment(this.state)
+        this.props.addComment(this.state)
         this.setState({
             name: "",
             content: "",
@@ -46,7 +46,7 @@ export class CommentForm extends React.Component {
                     <Form.Control type="input" onChange={this.handleChange} value={this.state.name} placeholder="Name" required/>
                 </Form.Group>
                 <Form.Group className="comment" id="comment-text" controlId="exampleForm.ControlTextarea1">
-                    <Form.Control as="textarea" onChange={this.handleComment} value={this.state.content} placeholder="Share your thoughts!" required rows={3} />
+                    <Form.Control as="textarea" onChange={this.handleComment} value={this.state.content} placeholder="Share your thoughts! (maximum 155 characters)" required rows={3} />
                 </Form.Group>
                 <Button style={{ marginBottom: 15, marginLeft: "4vw", marginTop: 15 }} type="submit">Post Comment!</Button>
             </Form>

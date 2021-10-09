@@ -2,9 +2,9 @@ import { Component } from "react";
 
 export default class Ingredient extends Component {
     render() {
-        const { name, amount, id, recipe_id } = this.props.ingredient
+        const { name, amount } = this.props.ingredient
         return(
-            <li>
+            <li className="content-p">
                 {amount} {name} 
             </li>
         )
