@@ -3,7 +3,6 @@ import Ingredient from "./Ingredient";
 import CommentForm from "./CommentForm";
 import { connect } from "react-redux";
 import { fetchRecipes } from "../actions/recipe";
-import Comments from "./Comments"
 import Comment from "./Comment";
 
 class RecipeInfo extends Component {
@@ -33,10 +32,11 @@ class RecipeInfo extends Component {
     }
 
     render() {
-        
+        console.log(this.props)
         const recipeObj = this.props.recipe.find(r => r.id === parseInt(this.props.match.params.id))
         const ingredient = recipeObj.ingredients && recipeObj.ingredients.map(i => <Ingredient ingredient={i}/>)
         const instArray = recipeObj.instructions && recipeObj.instructions.split("|")
+        const comments = recipeObj.comments.map(c => <Comment key={c.id} c={c}/>)
         
         return(
             <div className="background">
@@ -56,7 +56,7 @@ class RecipeInfo extends Component {
                     </p>
                 </div>
                 <CommentForm recipeObj={recipeObj} addComment={this.addComment}/>
-                <Comments recipeObj={recipeObj}/>
+                {comments}
             </div>
         )
     }
