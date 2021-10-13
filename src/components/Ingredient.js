@@ -5,7 +5,7 @@ export default class Ingredient extends Component {
         const { name, amount } = this.props.ingredient
         return(
             <li className="content-p">
-                {amount} {name} 
+                {amount} {name}
             </li>
         )
     }

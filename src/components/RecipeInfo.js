@@ -2,17 +2,15 @@ import { Component } from "react";
 import Ingredient from "./Ingredient";
 import CommentForm from "./CommentForm";
 import { connect } from "react-redux";
-import { fetchRecipes } from "../actions/recipe";
+import { createComment } from "../actions/recipe";
 import Comment from "./Comment";
 
 class RecipeInfo extends Component {
-    constructor() {
-        super()
-        this.state = {
+    state = {
             recipe: {},
             comments: []
         }
-    }
+
     
     componentDidMount() {
         
@@ -24,11 +22,9 @@ class RecipeInfo extends Component {
     }
 
     addComment = (commentObj) => {
-        console.log(commentObj)
         this.setState({
             comments: 
-                [...this.state.comments,
-                commentObj]
+                [...this.state.comments, commentObj]
         })
     }
 
@@ -67,9 +63,10 @@ class RecipeInfo extends Component {
 }
 
 const mapStateToProps = state => {
+    console.log("here!", state)
     return {
         recipe: state.recipe
         }
     }
 
-export default connect(mapStateToProps, {fetchRecipes})(RecipeInfo)
+export default connect(mapStateToProps, {createComment})(RecipeInfo)

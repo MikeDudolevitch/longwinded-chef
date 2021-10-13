@@ -12,6 +12,7 @@ export const fetchRecipes = () => {
 }
 
 export const addComment = (commentObj) => {
+    console.log("add comment in action", commentObj)
     return {
         type: "ADD_COMMENT",
         payload: commentObj
@@ -19,6 +20,7 @@ export const addComment = (commentObj) => {
 }
 
 export const createComment = (comment) => {
+    console.log("in action", comment)
     return (dispatch) => {
         fetch(`http://localhost:8080/recipes/${comment.recipe_id}/comments`, {
             method: "Post",
