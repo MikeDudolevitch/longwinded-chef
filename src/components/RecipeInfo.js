@@ -11,10 +11,17 @@ class RecipeInfo extends Component {
             comments: []
         }
 
-    
-    componentDidMount() {
+        // updateState(){ 
+        //     // Changing state 
+        //     this.setState((prevState) => {
+        //     return { count: prevState.count + 1}
+        //     })  
+        // }
         
+
+    componentDidMount() {
         const recipe = this.props.recipe.find(r => r.id === parseInt(this.props.match.params.id))
+        console.log("IN CDM!", recipe)
         this.setState({
             recipe: recipe,
             comments: recipe.comments || []
@@ -27,15 +34,17 @@ class RecipeInfo extends Component {
     addComment = (comment) => {
         console.log("in add comment!!", comment)
         this.setState({
-            comments: 
+            recipe: [...this.state.recipe],
+            comments:
                 [...this.state.comments, comment]
         })
     }
+
     render() {
 
 
         const recipeObj = this.props.recipe.find(r => r.id === parseInt(this.props.match.params.id))
-        console.log(recipeObj)
+        console.log("IN SHOW PAGE", recipeObj)
         const ingredient = recipeObj.ingredients && recipeObj.ingredients.map(i => <Ingredient ingredient={i}/>)
         const instArray = recipeObj.instructions && recipeObj.instructions.split("|")
         
@@ -43,7 +52,7 @@ class RecipeInfo extends Component {
             <div className="background">
                 <h3 className="headers">{recipeObj.name}</h3>
                 <div className="content-div">
-                    <p className="content-p">{recipeObj.blog}</p> 
+                    <div className="content-p">{recipeObj.blog}</div> 
                 </div>
                     <div id="ing-container">
                         <h4 style={{ padding: 10, color: "darkolivegreen"}}> Ingredients: </h4>
@@ -52,9 +61,9 @@ class RecipeInfo extends Component {
                             </ul>
                     </div>
                 <div className="content-div">
-                    <p className="content-p">
+                    <div className="content-p">
                         {instArray && instArray.map(i => <p>{i}</p>)} 
-                    </p>
+                    </div>
                 </div>
                 <CommentForm recipeObj={recipeObj} addComment={this.addComment}/>
                 <div style= {{ marginLeft: "4vw", marginBottom: 15, fontSize: 30, color: "cornsilk", fontStyle: "italic", fontWeight: "bold"}}>
@@ -67,10 +76,11 @@ class RecipeInfo extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    console.log("here!", state)
+const mapStateToProps = (state) => {
+    console.log("in map state 2 propz!", state)
     return {
-        recipe: state.recipe
+        recipe: this.state.recipe,
+        comments: this.state.comments
         }
     }
 

@@ -33,8 +33,6 @@ export class CommentForm extends React.Component {
         }) 
     }
 
-
-
 // TODO write an action for posting comment. 
 // TODO import to commentForm
 // TODO call inside click handler
@@ -60,11 +58,13 @@ export class CommentForm extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        recipe: state.recipe
+        recipe: state.recipe,
+        comments: state.comments
     }
 }
 
 const mapDispatchToProps = dispatch => {
+    console.log("IN MAP DISPATCH", dispatch)
     return {
         addComment: (state) => {
             dispatch(createComment(state))
