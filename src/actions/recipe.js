@@ -11,19 +11,22 @@ export const fetchRecipes = () => {
     }
 }
 
-export const addComment = (commentObj) => {
-    console.log("add comment in action", commentObj)
-    return {
-        type: "ADD_COMMENT",
-        payload: commentObj
-    }
-}
+// export const addComment = (commentObj) => {
+//     console.log("add comment in action", commentObj)
+//     return {
+//         type: "ADD_COMMENT",
+//         payload: commentObj
+//     }
+// }
 
 export const createComment = (comment) => {
+
     console.log("in action", comment)
+
     return (dispatch) => {
+        console.log("fetch")
         fetch(`http://localhost:8080/recipes/${comment.recipe_id}/comments`, {
-            method: "Post",
+            method: "POST",
             headers:{
                 'Content-Type': 'application/json',
                 'accept': 'application/json'
@@ -32,7 +35,11 @@ export const createComment = (comment) => {
         })
         .then(resp => resp.json())
         .then(data => {
-            dispatch(addComment(data))
+            console.log("in fetch!", data)
+            dispatch({
+                type: "ADD_COMMENT",
+                payload: data})
         })
+        .catch(err => console.log(err))
     }
 }

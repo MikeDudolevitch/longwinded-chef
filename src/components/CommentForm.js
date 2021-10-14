@@ -23,6 +23,7 @@ export class CommentForm extends React.Component {
     }
 
     handleSubmit = (e) => {
+        console.log("in HS", this.state)
         e.preventDefault()
         this.props.addComment(this.state)
         this.setState({
@@ -31,6 +32,8 @@ export class CommentForm extends React.Component {
             recipe_id: `${this.props.recipeObj.id}`
         }) 
     }
+
+
 
 // TODO write an action for posting comment. 
 // TODO import to commentForm
@@ -55,4 +58,18 @@ export class CommentForm extends React.Component {
 }
 }
 
-export default connect(null, {createComment})(CommentForm)
+const mapStateToProps = state => {
+    return {
+        recipe: state.recipe
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addComment: (state) => {
+            dispatch(createComment(state))
+        }
+    } 
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentForm)

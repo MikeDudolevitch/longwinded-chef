@@ -11,14 +11,17 @@ const recipeReducer = (state = initialState, action) => {
             recipe: [...action.payload]
             }
         case "ADD_COMMENT":
-            const recipeIndex = state.recipe.findIndex(r => r.id === action.payload.recipe_id)
+            const recipeIndex = state.recipe.findIndex(r => r.id === action.payload.recipe_id - 1)
+            
             const updatedRecipe = {
+                
                 ...state.recipe[recipeIndex],
                 recipe: [...state.recipe[recipeIndex].comments, action.payload]
             }
+            console.log("in reducer", updatedRecipe, action.payload)
         return {
                 ...state,
-                recipe: [...state.recipe.slice(0, recipeIndex), updatedRecipe, state.recipe.slice(recipeIndex + 1)] 
+                recipe: [...state.recipe.comments, action.payload]
             }
         default: 
             return state

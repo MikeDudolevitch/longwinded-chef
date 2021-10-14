@@ -21,16 +21,21 @@ class RecipeInfo extends Component {
         })
     }
 
-    addComment = (commentObj) => {
+    // componentDidUpdate(previousProps, previousState) {
+    // }
+
+    addComment = (comment) => {
+        console.log("in add comment!!", comment)
         this.setState({
             comments: 
-                [...this.state.comments, commentObj]
+                [...this.state.comments, comment]
         })
     }
-
     render() {
 
+
         const recipeObj = this.props.recipe.find(r => r.id === parseInt(this.props.match.params.id))
+        console.log(recipeObj)
         const ingredient = recipeObj.ingredients && recipeObj.ingredients.map(i => <Ingredient ingredient={i}/>)
         const instArray = recipeObj.instructions && recipeObj.instructions.split("|")
         
