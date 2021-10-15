@@ -1,5 +1,3 @@
-import { AccordionButton } from "react-bootstrap"
-
 const initialState = {
     recipe: []
 }
@@ -13,19 +11,18 @@ const recipeReducer = (state = initialState, action) => {
             }
         case "ADD_COMMENT":
             const recipeIndex = state.recipe.findIndex(r => r.id === action.payload.recipe_id)
-            
-            console.log("in reducer top ", recipeIndex, action.payload)
             const updatedRecipe = {
-                
                 ...state.recipe[recipeIndex],
                 comments: [...state.recipe[recipeIndex].comments, action.payload]
             }
-        return {
+            return {
                 ...state,
                 recipe: [...state.recipe.slice(0, recipeIndex), updatedRecipe, ...state.recipe.slice(recipeIndex + 1)]
             }
         default: 
             return state
+            
+                
     }
 }
 

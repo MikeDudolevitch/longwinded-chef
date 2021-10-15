@@ -23,7 +23,6 @@ export class CommentForm extends React.Component {
     }
 
     handleSubmit = (e) => {
-        console.log("in HS", this.state)
         e.preventDefault()
         this.props.addComment(this.state)
         this.setState({
@@ -32,12 +31,6 @@ export class CommentForm extends React.Component {
             recipe_id: `${this.props.recipeObj.id}`
         }) 
     }
-
-// TODO write an action for posting comment. 
-// TODO import to commentForm
-// TODO call inside click handler
-// TODO inside of .then of promise, call props.addComment()
-// TODO make sure comment component is displaying values on browser
 
     render(){
     return (
@@ -64,7 +57,6 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    console.log("IN MAP DISPATCH", dispatch)
     return {
         addComment: (state) => {
             dispatch(createComment(state))

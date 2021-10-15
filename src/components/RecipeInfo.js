@@ -12,8 +12,7 @@ class RecipeInfo extends Component {
         const recipeObj = this.props.recipe.find(r => r.id === parseInt(this.props.match.params.id))
         const ingredient = recipeObj.ingredients && recipeObj.ingredients.map(i => <Ingredient ingredient={i}/>)
         const instArray = recipeObj.instructions && recipeObj.instructions.split("|")
-        
-        console.log("FETCHING!", this.props)
+
         return(
             <div className="background">
                 <h3 className="headers">{recipeObj.name}</h3>
@@ -36,7 +35,6 @@ class RecipeInfo extends Component {
                     Comments:
                 </div>
                 {recipeObj.comments.map(c => <Comment key={c.id} c={c}/>)} 
-                {/* {this.state.comments.map(c => <Comment key={c.id} c={c}/>)} */}
             </div>
         )
     }

@@ -21,8 +21,6 @@ export const fetchRecipes = () => {
 
 export const createComment = (comment) => {
 
-    console.log("in action", comment)
-
     return (dispatch) => {
         console.log("fetch")
         fetch(`http://localhost:8080/recipes/${comment.recipe_id}/comments`, {
@@ -35,7 +33,6 @@ export const createComment = (comment) => {
         })
         .then(resp => resp.json())
         .then(data => {
-            console.log("in fetch!", data)
             dispatch({
                 type: "ADD_COMMENT",
                 payload: data})

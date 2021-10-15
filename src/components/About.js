@@ -14,8 +14,7 @@ export default class About extends Component {
                         <Card.Img variant="top" src={process.env.PUBLIC_URL + "/pics/mikeweird.jpg"} />
                         <Card.Body>
                             <Card.Text style={{ textAlign: "center", marginRight: 20, color: "darkolivegreen" }}>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
+                                The Longwinded Chef is a Michelin Star rated chef who got started working at a Dairy Queen in the greater Toledo, OH, area at age 14. He worked his way up to be assistant manager and then started this blog.
                             </Card.Text>
                         </Card.Body>
                 </Card>
