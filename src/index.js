@@ -15,7 +15,7 @@ const store = createStore(recipeReducer, compose(applyMiddleware(thunk), window.
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

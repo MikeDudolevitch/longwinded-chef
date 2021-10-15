@@ -11,14 +11,6 @@ export const fetchRecipes = () => {
     }
 }
 
-// export const addComment = (commentObj) => {
-//     console.log("add comment in action", commentObj)
-//     return {
-//         type: "ADD_COMMENT",
-//         payload: commentObj
-//     }
-// }
-
 export const createComment = (comment) => {
 
     return (dispatch) => {

@@ -44,6 +44,6 @@ const mapStateToProps = state => {
     return {
         recipe: state.recipe
     }
-    }
+}
     
-    export default connect(mapStateToProps, {fetchRecipes})(RecipeInfo)
+export default connect(mapStateToProps, {fetchRecipes})(RecipeInfo)

@@ -7,7 +7,7 @@ const recipeReducer = (state = initialState, action) => {
         case "GET_RECIPES":
             return {
                 ...state,
-            recipe: [...action.payload]
+                recipe: [...action.payload]
             }
         case "ADD_COMMENT":
             const recipeIndex = state.recipe.findIndex(r => r.id === action.payload.recipe_id)
@@ -21,8 +21,6 @@ const recipeReducer = (state = initialState, action) => {
             }
         default: 
             return state
-            
-                
     }
 }
 
