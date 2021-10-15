@@ -2,52 +2,18 @@ import { Component } from "react";
 import Ingredient from "./Ingredient";
 import CommentForm from "./CommentForm";
 import { connect } from "react-redux";
-import { createComment } from "../actions/recipe";
+import { fetchRecipes } from "../actions/recipe";
 import Comment from "./Comment";
 
 class RecipeInfo extends Component {
-    state = {
-            recipe: {},
-            comments: []
-        }
-
-        // updateState(){ 
-        //     // Changing state 
-        //     this.setState((prevState) => {
-        //     return { count: prevState.count + 1}
-        //     })  
-        // }
-        
-
-    componentDidMount() {
-        const recipe = this.props.recipe.find(r => r.id === parseInt(this.props.match.params.id))
-        console.log("IN CDM!", recipe)
-        this.setState({
-            recipe: recipe,
-            comments: recipe.comments || []
-        })
-    }
-
-    // componentDidUpdate(previousProps, previousState) {
-    // }
-
-    addComment = (comment) => {
-        console.log("in add comment!!", comment)
-        this.setState({
-            recipe: [...this.state.recipe],
-            comments:
-                [...this.state.comments, comment]
-        })
-    }
 
     render() {
-
-
+        
         const recipeObj = this.props.recipe.find(r => r.id === parseInt(this.props.match.params.id))
-        console.log("IN SHOW PAGE", recipeObj)
         const ingredient = recipeObj.ingredients && recipeObj.ingredients.map(i => <Ingredient ingredient={i}/>)
         const instArray = recipeObj.instructions && recipeObj.instructions.split("|")
         
+        console.log("FETCHING!", this.props)
         return(
             <div className="background">
                 <h3 className="headers">{recipeObj.name}</h3>
@@ -70,18 +36,16 @@ class RecipeInfo extends Component {
                     Comments:
                 </div>
                 {recipeObj.comments.map(c => <Comment key={c.id} c={c}/>)} 
-                {this.state.comments.map(c => <Comment key={c.id} c={c}/>)}
+                {/* {this.state.comments.map(c => <Comment key={c.id} c={c}/>)} */}
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => {
-    console.log("in map state 2 propz!", state)
+const mapStateToProps = state => {
     return {
-        recipe: this.state.recipe,
-        comments: this.state.comments
-        }
+        recipe: state.recipe
     }
-
-export default connect(mapStateToProps, {createComment})(RecipeInfo)
+    }
+    
+    export default connect(mapStateToProps, {fetchRecipes})(RecipeInfo)
